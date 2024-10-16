@@ -88,5 +88,6 @@ class AppConstants {
   static const String logo_colored_with_text = "${rootImage}logo_colored_with_text.png";
   static const String ui9bg = "${rootImage}ui9bg.png";
   static const String placement = "${rootImage}placement.jpeg";
+  static const String defaultProfilePic = "${rootImage}default_profile_pic.png";
 
 }

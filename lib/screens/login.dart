@@ -7,7 +7,8 @@ import 'package:placement_app/utils/constants.dart';
 import 'package:placement_app/widgets/button_widget.dart';
 import 'package:placement_app/widgets/social_button_widget.dart';
 import 'package:placement_app/widgets/textfield_without_title.dart';
-
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 
 class Login extends StatefulWidget {
   const Login({super.key});
@@ -17,11 +18,45 @@ class Login extends StatefulWidget {
 }
 
 class _LoginState extends State<Login> {
-  TextEditingController emailController = TextEditingController();
-  TextEditingController passwordController = TextEditingController();
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   bool isPassword = false;
   bool isChecked = false;
+
+  Future<void> _signInWithEmailAndPassword() async {
+    try {
+      await _auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+      Navigator.pushNamed(context, AppRoutes.homeScreen);
+    } catch (e) {
+      // Handle errors like incorrect password, user not found, etc.
+      print("Login error: $e");
+    }
+  }
+
+  Future<void> _signInWithGoogle() async {
+    try {
+      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+      final GoogleSignInAuthentication? googleAuth =
+          await googleUser?.authentication;
+
+      if (googleAuth != null) {
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleAuth.accessToken,
+          idToken: googleAuth.idToken,
+        );
+        await _auth.signInWithCredential(credential);
+        Navigator.pushNamed(context, AppRoutes.homeScreen);
+      }
+    } catch (e) {
+      // Handle errors
+      print("Google sign-in error: $e");
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -130,7 +165,8 @@ class _LoginState extends State<Login> {
                         ),
                         GestureDetector(
                           onTap: () {
-                            // Add forgot password functionality
+                            Navigator.pushNamed(
+                                context, AppRoutes.forgetPassScreen);
                           },
                           child: Text(
                             AppConstants.forgotPassword,
@@ -148,12 +184,7 @@ class _LoginState extends State<Login> {
                       backgroundColor: AppConstants.mainColor,
                       width: double.infinity,
                       height: getProportionateScreenHeight(50),
-                      onTap: () {
-                        Navigator.pushNamed(
-                          context,
-                          AppRoutes.homeScreen,
-                        );
-                      },
+                      onTap: _signInWithEmailAndPassword,
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
                     Row(
@@ -185,48 +216,16 @@ class _LoginState extends State<Login> {
                       ],
                     ),
                     SizedBox(height: getProportionateScreenHeight(20)),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        SocialButtonWidget(
-                          icon: AppConstants.imgGoogle,
-                          backgroundColor: AppConstants.clrBackground,
-                          width: getProportionateScreenWidth(70),
-                          height: getProportionateScreenHeight(50),
-                          onTap: () {
-                            // Add Google login functionality
-                          },
-                        ),
-                        SocialButtonWidget(
-                          icon: AppConstants.imgFacebook,
-                          backgroundColor: AppConstants.clrBackground,
-                          width: getProportionateScreenWidth(70),
-                          height: getProportionateScreenHeight(50),
-                          onTap: () {
-                            // Add Facebook login functionality
-                          },
-                        ),
-                        SocialButtonWidget(
-                          icon: AppConstants.imgApple,
-                          backgroundColor: AppConstants.clrBackground,
-                          width: getProportionateScreenWidth(70),
-                          height: getProportionateScreenHeight(50),
-                          onTap: () {
-                            // Add Apple login functionality
-                          },
-                        ),
-                        SocialButtonWidget(
-                          icon: AppConstants.imgPhone,
-                          backgroundColor: AppConstants.clrBackground,
-                          width: getProportionateScreenWidth(70),
-                          height: getProportionateScreenHeight(50),
-                          onTap: () {
-                            // Add Phone login functionality
-                          },
-                        ),
-                      ],
+                    // Centered Google Sign-in button
+                    Center(
+                      child: SocialButtonWidget(
+                        icon: AppConstants.imgGoogle,
+                        backgroundColor: AppConstants.clrBackground,
+                        width: getProportionateScreenWidth(70),
+                        height: getProportionateScreenHeight(50),
+                        onTap: _signInWithGoogle,
+                      ),
                     ),
-                    // Add the new section below the row of social buttons
                     SizedBox(height: getProportionateScreenHeight(20)),
                     RichText(
                       text: TextSpan(
@@ -238,13 +237,14 @@ class _LoginState extends State<Login> {
                         children: [
                           TextSpan(
                             text: "Signup",
-                             style: TextStyle(
+                            style: TextStyle(
                               color: AppConstants.textBlue,
                               fontSize: getProportionateScreenWidth(13),
                             ),
                             recognizer: TapGestureRecognizer()
                               ..onTap = () {
-                                Navigator.pushNamed(context, AppRoutes.signUpScreen);
+                                Navigator.pushNamed(
+                                    context, AppRoutes.signUpScreen);
                               },
                           ),
                         ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:placement_app/utils/constants.dart'; // Import your constants for mainColor
-import 'package:placement_app/routes/app_routes.dart'; // Import your AppRoutes
+import 'package:placement_app/utils/constants.dart'; // Import constants for mainColor
+import 'package:placement_app/routes/app_routes.dart'; // Import AppRoutes
 
 class CustomizeDrawerScreen extends StatelessWidget {
   const CustomizeDrawerScreen({super.key});

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "430578019700",
+    "firebase_url": "https://placement-app-fec14-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "placement-app-fec14",
+    "storage_bucket": "placement-app-fec14.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:430578019700:android:0a5e008da10bfade1fd021",
+        "android_client_info": {
+          "package_name": "com.example.placement_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "430578019700-shc0lsg00ncm4sue7abshehtjhkj6s3b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAsUuT4tQwWSE1gbewcfVgTBaTJA7Ew2mM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "430578019700-shc0lsg00ncm4sue7abshehtjhkj6s3b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "430578019700-s7c98aqtopvab075n33pablmftbe723g.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.placementApp"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

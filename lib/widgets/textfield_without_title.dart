@@ -1,31 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:placement_app/size_config.dart';
-
 import '../utils/constants.dart';
 
 class TextfieldWithoutTitleWidget extends StatelessWidget {
-  TextfieldWithoutTitleWidget(
-      {this.controller,
-      this.keyboardType,
-      this.textInputAction,
-      this.title,
-      this.hintText,
-      this.suffixIcon,
-      this.obsecure,
-        this.backgroundColor,
-      Key? key})
-      : super(key: key);
+  const TextfieldWithoutTitleWidget({
+    Key? key,
+    required this.controller,
+    this.keyboardType,
+    this.textInputAction,
+    this.hintText,
+    this.suffixIcon,
+    this.obsecure,
+    this.backgroundColor,
+    this.validator,  // Added validator parameter
+  }) : super(key: key);
 
-  TextEditingController? controller;
-  TextInputType? keyboardType;
-  TextInputAction? textInputAction;
-  String? hintText;
-  Widget? suffixIcon;
-  String? title;
-  bool? obsecure;
-  Color? backgroundColor;
-  ValueChanged<String>? onChanged;
-  ValueChanged<String>? onFieldSubmitted;
+  final TextEditingController controller;
+  final TextInputType? keyboardType;
+  final TextInputAction? textInputAction;
+  final String? hintText;
+  final Widget? suffixIcon;
+  final bool? obsecure;
+  final Color? backgroundColor;
+  final String? Function(String?)? validator; // Validator function type
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +32,6 @@ class TextfieldWithoutTitleWidget extends StatelessWidget {
         borderRadius: BorderRadius.all(Radius.circular(10)),
         border: Border.all(
           width: 1,
-          // assign the color to the border color
           color: AppConstants.greyColor1,
         ),
       ),
@@ -44,13 +40,12 @@ class TextfieldWithoutTitleWidget extends StatelessWidget {
         style: TextStyle(fontSize: getProportionateScreenWidth(14)),
         keyboardType: keyboardType ?? TextInputType.text,
         obscureText: obsecure ?? false,
-        onFieldSubmitted: onFieldSubmitted,
+        validator: validator, // Use the validator here
         decoration: InputDecoration(
           border: OutlineInputBorder(
             borderRadius: BorderRadius.all(Radius.circular(10)),
           ),
           contentPadding: EdgeInsets.symmetric(vertical: 15, horizontal: 15),
-          focusColor: Colors.grey[100],
           suffixIcon: suffixIcon ?? SizedBox(),
           hintText: hintText ?? '',
           hintStyle: TextStyle(fontSize: getProportionateScreenWidth(14)),
@@ -68,7 +63,6 @@ class TextfieldWithoutTitleWidget extends StatelessWidget {
               borderRadius: BorderRadius.all(Radius.circular(10)),
               borderSide: BorderSide(color: AppConstants.clrRed)),
         ),
-        onChanged: onChanged,
         textInputAction: textInputAction ?? TextInputAction.next,
       ),
     );

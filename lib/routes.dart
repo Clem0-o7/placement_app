@@ -6,6 +6,9 @@ import 'package:placement_app/screens/home.dart';
 import 'package:placement_app/screens/user_profile.dart';
 import 'package:placement_app/screens/companies_screen.dart';
 import 'package:placement_app/screens/feedback_screen.dart';
+import 'package:placement_app/screens/forgetpass_screen.dart';
+import 'package:placement_app/screens/edit_profile.dart';
+import 'package:placement_app/screens/company_details.dart';
 
 final Map<String, WidgetBuilder> routes = {
   // Login and Sign Up Screens
@@ -15,4 +18,8 @@ final Map<String, WidgetBuilder> routes = {
   AppRoutes.profileScreen: (context) => ProfileScreen(),
   AppRoutes.companiesScreen: (context) => CompaniesScreen(),
   AppRoutes.feedbackScreen: (context) => FeedbackScreen(),
+  AppRoutes.forgetPassScreen: (context) => ForgetPassScreen(),
+  AppRoutes.editProfileScreen: (context) => EditProfileScreen(),
+  //AppRoutes.companyDetailsScreen: (context) => CompanyDetailsScreen(),
+  AppRoutes.companyDetailsScreen: (context) => CompanyDetailsScreen(),
 };

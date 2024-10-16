@@ -1,0 +1,53 @@
+{
+    "companies": [
+      {
+        "contact": "contact@google.com",
+        "description": "Google LLC is an American multinational conglomerate specializing in Internet-related services and products, which include online advertising technologies, a search engine, cloud computing, software, and hardware.",
+        "details": "More details about Google.",
+        "location": "Mountain View, California, USA",
+        "name": "Google"
+      },
+      {
+        "contact": "contact@apple.com",
+        "description": "Apple Inc. is an American multinational technology company that designs, manufactures, and markets consumer electronics, computer software, and online services.",
+        "details": "More details about Apple.",
+        "location": "Cupertino, California, USA",
+        "name": "Apple"
+      },
+      {
+        "contact": "contact@microsoft.com",
+        "description": "Microsoft Corporation is an American multinational technology corporation that develops, manufactures, licenses, supports, and sells computer software, consumer electronics, personal computers, and services.",
+        "details": "More details about Microsoft.",
+        "location": "Redmond, Washington, USA",
+        "name": "Microsoft"
+      },
+      {
+        "contact": "contact@amazon.com",
+        "description": "Amazon.com, Inc. is an American multinational technology company based in Seattle, Washington, that focuses on e-commerce, cloud computing, digital streaming, and artificial intelligence.",
+        "details": "More details about Amazon.",
+        "location": "Seattle, Washington, USA",
+        "name": "Amazon"
+      },
+      {
+        "contact": "contact@facebook.com",
+        "description": "Meta Platforms, Inc., formerly known as Facebook, Inc., is an American multinational technology conglomerate that owns Facebook, Instagram, WhatsApp, and Oculus.",
+        "details": "More details about Meta.",
+        "location": "Menlo Park, California, USA",
+        "name": "Meta"
+      }
+    ],
+    "users": {
+      "WHQbnzqNpnUjsWrkau2YTqpeBYP2": {
+        "cgpa": "8",
+        "companyName": "Company A",
+        "department": "CSE",
+        "email": "",
+        "isPlaced": true,
+        "name": "",
+        "phoneNumber": "",
+        "profilePicUrl": "https://example.com/default_profile_pic.png",
+        "semester": "5"
+      }
+    }
+  }
+  

@@ -1,0 +1,39 @@
+{
+  "companies": [
+    null,
+    {
+      "contact": "contact@companya.com",
+      "description": "Description of Company A",
+      "details": "More details about Company A.",
+      "location": "Location A",
+      "name": "Company A"
+    },
+    {
+      "contact": "contact@companyb.com",
+      "description": "Description of Company B",
+      "details": "More details about Company B.",
+      "location": "Location B",
+      "name": "Company B"
+    },
+    {
+      "contact": "contact@companyc.com",
+      "description": "Description of Company C",
+      "details": "More details about Company C.",
+      "location": "Location C",
+      "name": "Company C"
+    }
+  ],
+  "users": {
+    "WHQbnzqNpnUjsWrkau2YTqpeBYP2": {
+      "cgpa": "8",
+      "companyName": "Company A",
+      "department": "CSE",
+      "email": "",
+      "isPlaced": true,
+      "name": "",
+      "phoneNumber": "",
+      "profilePicUrl": "https://example.com/default_profile_pic.png",
+      "semester": "5"
+    }
+  }
+}
